@@ -381,7 +381,7 @@ class Shapes
 
       }
 
-   System.out.println("Made by Skyler Stark");
+   System.out.println("Made by Skyler Stark. AKA DR.DeathKitty");
 
    }
 
