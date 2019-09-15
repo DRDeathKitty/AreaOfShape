@@ -25,7 +25,14 @@ class Shapes
            str = JOptionPane.showInputDialog(null, "Please select the desired shape by entering the number beside the shape, or press 0 to exit.\n" + "Circle: 1\n"
                                              + "Rectangle: 2\n" + "Square: 3\n" + "Triangle: 4\n" + "Cube: 5\n" + "Parallelogram: 6\n" + "Kite: 7\n" + "Pentagon: 8\n"
                                              + "Hexagon: 9\n" + "Octagon: 10\n" + "Annulus: 11\n" + "Exit: 0\n");
+                                             
+           if(str != null) // Void Venom found this bug
+           {
+           
            select = Double.parseDouble(str);
+           
+           }
+           
            
          }
          
@@ -49,10 +56,18 @@ class Shapes
 		            str = JOptionPane.showInputDialog(null, "Please enter the radius of the circle.");
                   radius = Double.parseDouble(str);
                   
+                  if(radius <= 0) // Void Venom found this bug
+                  {
+                  
+                     JOptionPane.showMessageDialog(null, "Please enter a positive number");
+                  
+                  }
+                  else
+                  {
                   area = (pi * radius) * (pi * radius);
                   
 		            JOptionPane.showMessageDialog(null, "The area of your circle is " + area + " inches squared");
-                  
+                  }
                }
                
                // Catches when the user enters something that isn't a numerical value.
@@ -471,17 +486,24 @@ class Shapes
                   
          //Exits the program   
          else if(select == 0)
-	         java.lang.System.exit(0);
+         {
+         
+            count += 1;
+            
+         }
 	      
          
 	      // this final else will catch any imput from the user that isn't the required 1-5 used for selecting a shape.
          else
 	         JOptionPane.showMessageDialog(null, "ERROR: Please Enter a valid key.");
+            
+
 
       }
-   // Signs the program in console.
-   System.out.println("Made by Skyler Stark. AKA DR.DeathKitty");
-
+      
+      System.out.println("Made by Skyler Stark. AKA DR.DeathKitty");
+      System.exit(0);
+      
    }
 
 }
